@@ -13,7 +13,6 @@ pipeline {
           steps {
             sh "docker build -t demoimg ."
           }
-      
     }
 
       stage("deploy the index.html") {
@@ -24,7 +23,5 @@ pipeline {
             sh "docker run -d -p 8080:8080 demoimg"
         
       }
-      }
-      
     }
 }
