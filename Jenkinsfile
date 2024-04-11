@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage("clone the repo") {
           steps {
+            cleanWs()
             sh "git clone https://github.com/survasebhagyashree/demorepo.git"
           }
         }
