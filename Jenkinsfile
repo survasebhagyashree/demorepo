@@ -4,19 +4,19 @@ pipeline {
   }
     
     stages {
-        stage ("clone the repo") {
+        stage("clone the repo") {
           steps {
             sh "git clone url"
           }
         }
-      stage ("build the code") {
+      stage("build the code") {
           steps {
             sh "docker build -t demoimg ."
           }
       
     }
 
-      stage ("deploy the index.html") {
+      stage("deploy the index.html") {
           agent  {
             'slave1'
           }
