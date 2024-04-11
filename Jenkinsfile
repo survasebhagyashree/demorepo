@@ -1,5 +1,8 @@
 pipeline {
-  agent 'Built-In Node' {
+  agent {
+    'master'
+  }
+    
     stages {
         stage ("clone the repo") {
           steps {
@@ -10,14 +13,16 @@ pipeline {
           steps {
             sh "docker build -t demoimg ."
           }
-      }
+      
     }
 
       stage ("deploy the index.html") {
-          agent 'slave1' {
+          agent  {
+            'slave1'
+          }
         steps {
             sh "docker run -d -p 8080:8080 demoimg"
-        }
+        
       }
       }
       
