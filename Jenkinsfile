@@ -1,16 +1,21 @@
 pipeline {
-  agent {
-    docker {"image httpd"}
+  agent any
     stages {
         stage ("clone the repo") {
           steps {
             sh "git clone url"
           }
         }
-      stage ("deploy code") {
+      stage ("build the code") {
           steps {
-            sh "cp index.html /usr/local/apache2/htdocs/"
+            sh "docker build -t demoimg ."
           }
+      }
+
+      stage ("deploy the index.html") {
+        steps {
+            sh "docker run -d -p 8080:8080 demoimg"
+        }
       }
       
     }
