@@ -10,6 +10,11 @@ pipeline {
             sh "git clone https://github.com/survasebhagyashree/demorepo.git"
           }
         }
+      stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
       stage("build the code") {
           steps {
             sh "docker build -t demoimg ."
