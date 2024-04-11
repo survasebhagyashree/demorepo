@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    'master'
+    agent 'master'
   }
     
     stages {
@@ -18,7 +18,7 @@ pipeline {
 
       stage("deploy the index.html") {
           agent  {
-            'slave1'
+            agent 'slave1'
           }
         steps {
             sh "docker run -d -p 8080:8080 demoimg"
