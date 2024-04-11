@@ -10,12 +10,7 @@ pipeline {
             sh "git clone https://github.com/survasebhagyashree/demorepo.git"
           }
         }
-      stage('Initialize') {
-        steps {
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
-    }
+      
 
       stage("build the code") {
           steps {
