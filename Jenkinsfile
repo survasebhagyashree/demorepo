@@ -9,7 +9,7 @@ pipeline {
         }
       stage ("deploy code") {
           steps {
-            sh "cp index.html /var/www/html"
+            sh "cp index.html /usr/local/apache2/htdocs/"
           }
       }
       
