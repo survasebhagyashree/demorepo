@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("clone the repo") {
           steps {
-            sh "git clone https://github.com/survasebhagyashree/demorepo.git
+            sh "git clone https://github.com/survasebhagyashree/demorepo.git"
           }
         }
       stage("build the code") {
