@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent Built-In Node
     stages {
         stage ("clone the repo") {
           steps {
